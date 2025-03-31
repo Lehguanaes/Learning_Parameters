@@ -2,11 +2,9 @@ package com.example.learningparameters.ui.theme.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,16 +20,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
 import com.example.learningparameters.R
-import com.example.learningparameters.ui.theme.LearningParametersTheme
 import com.example.learningparameters.ui.theme.Purple
 import com.example.learningparameters.ui.theme.Rose
 
@@ -43,6 +39,7 @@ import com.example.learningparameters.ui.theme.Rose
  * e fazer a compração (variável "name") dentro da
  * HomeRoute.kt para a autenticação dos usuários
 */
+
 @Composable
 fun HomeScreen(user: com.example.learningparameters.data.User) {
     Box(
@@ -83,7 +80,7 @@ fun HomeScreen(user: com.example.learningparameters.data.User) {
                 painter = painterResource(id = R.drawable.icone),
                 contentDescription = "Imagem de perfil",
                 modifier = Modifier
-                    .size(120.dp)
+                    .size(150.dp)
                     .padding(8.dp) // Padding para espaçamento
             )
 
@@ -111,11 +108,59 @@ fun HomeScreen(user: com.example.learningparameters.data.User) {
 
             // Informações do usuário
             Spacer(modifier = Modifier.height(16.dp))
-            InfoText(label = "E-mail", value = user.email)
-            InfoText(label = "Turma", value = user.turma)
-            InfoText(label = "Data de Nascimento", value = user.registerDate)
-            InfoText(label = "Pontuação", value = user.score.toString())
-            InfoText(label = "Idade", value = user.age.toString())
+            Column(
+                horizontalAlignment = Alignment.Start, // Alinha todos os itens à esquerda
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
+            ) {
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // E-mail
+                InfoText(
+                    label = "E-mail:",
+                    value = user.email,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp) // Espaçamento entre os campos
+                )
+
+                // Turma
+                InfoText(
+                    label = "Turma:",
+                    value = user.turma,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
+                )
+
+                // Pontuação
+                InfoText(
+                    label = "Pontuação:",
+                    value = user.score.toString(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
+                )
+
+                // Data de Nascimento
+                InfoText(
+                    label = "Data de Nascimento:",
+                    value = user.registerDate,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
+                )
+
+                // Idade
+                InfoText(
+                    label = "Idade:",
+                    value = user.age.toString(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
+                )
+            }
 
             // Espaçamento flexível para empurrar o rodapé para o final
             Spacer(modifier = Modifier.weight(1f))
@@ -128,15 +173,29 @@ fun HomeScreen(user: com.example.learningparameters.data.User) {
 
 // Componente para exibir as informações do usuário
 @Composable
-fun InfoText(label: String, value: String) {
-    Text(
-        text = "$label: $value",
-        fontSize = 16.sp,
-        fontFamily = FontFamily.Serif,
-        modifier = Modifier.padding(top = 12.dp),
-        fontWeight = FontWeight.Medium, // Ajusta o peso da fonte para melhor leitura
-        color = Color.Black
-    )
+fun InfoText(
+    label: String,
+    value: String,
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
+        Text(
+            text = label,
+            style = TextStyle(
+                fontWeight = FontWeight.Bold, // Torna o label em negrito
+                fontSize = 16.5.sp,
+                color = Purple // Cor do texto do label
+            )
+        )
+        Spacer(modifier = Modifier.height(4.dp)) // Espaçamento entre o label e o valor
+        Text(
+            text = value,
+            style = TextStyle(
+                fontSize = 16.sp,
+                color = Color.Black // Cor do texto do valor
+            )
+        )
+    }
 }
 
 // Rodapé estilizado
