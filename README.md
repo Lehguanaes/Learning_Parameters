@@ -4,9 +4,10 @@ Aplicativo desenvolvido para aprendizado de parâmetros e passagem de telas no A
 
  <a href="LearningParameters/app/src/main/java/com/example/learningparameters/MainActivity.kt" target="_blank"><img src="https://img.shields.io/badge/App-0D1117?style=for-the-badge&logo=android-studio&logoColor=EC869F"></a>
 
-<img width="250" alt="image" src="https://github.com/user-attachments/assets/fa2d04be-7e89-4f6c-bdf4-26c8fec10b8c" />
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/bf4ceeca-f66e-4a0b-a13b-fedb27558081" />
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/5059e6f0-2a4a-48b4-8aec-f332720900d4" />
 
 ##
 
 - Na view do Android Studio
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/c28c77e9-f8f1-4db6-adec-d646c75d3e6d" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/e1022e78-cea4-438f-a62e-bb959453fe6d" />
